@@ -1,0 +1,23 @@
+{
+  "name": "ascii",
+  "version": "0.0.0",
+  "description": "create ascii arts from pictures using node-canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/turingou/ascii.git"
+  },
+  "keywords": [
+    "ascii",
+    "ascii-arts",
+    "canvas"
+  ],
+  "author": "turing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turingou/ascii/issues"
+  }
+}
