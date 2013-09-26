@@ -25,18 +25,19 @@ Ascii.prototype.load = function(callback) {
     }
 }
 
-Ascii.prototype.pic = function(callback, type) {
-    var type = type ? type : 'cli';
+Ascii.prototype.convert = function(type, callback) {
+    var t = (type && typeof(type) === 'string') ? type : 'cli',
+        cb = (typeof(type) === 'function' && !callback) ? type : callback;
     this.load(function(err, img){
         if (!err) {
             var pic = new Canvas.Image;
-            pic.src = img;
+                pic.src = img;
             var cv = new Canvas(pic.width, pic.height),
                 ctx = cv.getContext('2d');
             ctx.drawImage(pic, 0, 0, pic.width, pic.height);
-            callback(null, ascii.init(type, ctx, pic));
+            cb(null, ascii.init(t, ctx, pic));
         } else {
-            callback(err);
+            cb(err);
         }
     });
 }

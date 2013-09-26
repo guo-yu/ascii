@@ -1,17 +1,28 @@
 ## ascii ![npm](https://badge.fury.io/js/ascii.png)
 
-create ascii arts from pictures using node-canvas by [turing](https://npmjs.org/~turing) 
+convert jpg/png/gif to ascii arts based on node-canvas
 
 ### Installation
 ````
 $ npm install ascii
-// or install globally
-$ sudo npm install ascii -g
 ````
 
 ### Example
 ````javascript
-var ascii = require('ascii');
+var Ascii = require('ascii');
+var pic = new Ascii('demo.png');
+
+// output in terminal (terminal mode)
+pic.convert(function(err, result) {
+    console.log(result);
+});
+
+// output as html strings with css style (html mode)
+pic.convert('html', function(err, html){
+    console.log(html);
+    // then save it
+    require('fs').saveFileSync('demo.html',html);
+});
 ````
 
 ### API

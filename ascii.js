@@ -1,7 +1,8 @@
-// 感谢 justjavac 的想法启发：
+// 感谢 justjavac 的想法启发
 // 原文：http://justjavac.com/javascript/2013/09/25/ji-yu-canvas-jiang-tu-pian-zhuan-hua-cheng-zi-fu-hua.html
 
 var Ascii = {
+    style: "<style type='text/css'>* {margin: 0;padding: 0;} .ascii {font-size: 12px;font-family: simsun;}</style>",
     // 按照不同的终端输出
     types: {
         cli: {
@@ -56,7 +57,7 @@ var Ascii = {
             p += self.types[type].br;
             text += p;
         }
-        return text;
+        return (type === 'html') ? self.style + "<div class='ascii'>" + text + '</div>' : text;
     }
 }
 
