@@ -22,7 +22,7 @@ pic.convert(function(err, result) {
 pic.convert('html', function(err, html){
     console.log(html);
     // then save it
-    require('fs').saveFileSync('demo.html',html);
+    require('fs').writeFileSync('demo.html',html);
 });
 ````
 

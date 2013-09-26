@@ -5,7 +5,7 @@
 // /_/  |_/____/\___/_/_/
 //
 // @author: [turing](http://guoyu.me);
-// @desc: convert jpg/png/gif to ascii arts based on node-canvas.
+// @desc: convert pictures to ascii arts based on node-canvas
                          
 var fs = require('fs'),
     Canvas = require('canvas'),
