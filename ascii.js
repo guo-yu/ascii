@@ -1,5 +1,4 @@
-// 感谢 justjavac 的想法启发
-// 原文：http://justjavac.com/javascript/2013/09/25/ji-yu-canvas-jiang-tu-pian-zhuan-hua-cheng-zi-fu-hua.html
+// 感谢这篇文章的启发 [基于canvas将图片转化成字符画](http://www.cssha.com/img2txt-canvas)
 
 var Ascii = {
     style: "<style type='text/css'>* {margin: 0;padding: 0;} .ascii {font-size: 12px;font-family: simsun;}</style>",
