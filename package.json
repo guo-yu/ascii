@@ -15,6 +15,9 @@
     "ascii-arts",
     "canvas"
   ],
+  "dependencies": {
+    "canvas": "~1.1.2"
+  },
   "author": "turing",
   "license": "MIT",
   "bugs": {
