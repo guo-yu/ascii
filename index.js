@@ -17,9 +17,7 @@ var Ascii = function(src, params) {
 
 Ascii.prototype.load = function(callback) {
     if (this.src) {
-        fs.readFile(this.src, function(err, img){
-            callback(err, img);
-        });
+        fs.readFile(this.src, callback);
     } else {
         callback(new Error('src picture required.'))
     }
@@ -40,6 +38,16 @@ Ascii.prototype.convert = function(type, callback) {
             cb(err);
         }
     });
+}
+
+Ascii.fromBuffer = function (buffer) {
+    var instance = new Ascii();
+    
+    instance.load = function (callback) {
+        callback(null, buffer);
+    };
+    
+    return instance;
 }
 
 module.exports = Ascii;
