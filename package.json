@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "convert pictures to ascii arts based on node-canvas",
   "main": "index.js",
+  "scripts": {
+    "example": "node example/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/turingou/ascii.git"
@@ -16,5 +19,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/turingou/ascii/issues"
+  },
+  "dependencies": {
+    "canvas": ">= 1.1.0"
   }
 }
