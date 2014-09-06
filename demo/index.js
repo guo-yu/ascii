@@ -1,5 +1,5 @@
 var Ascii = require('../index');
-var pic = new Ascii(__dirname + '/demo.jpg');
+var pic = new Ascii(__dirname + '/demo2.jpg');
 var fs = require('fs');
 
 pic.convert(function(err, result) {
