@@ -6,48 +6,41 @@
 //
 // @author: [turing](http://guoyu.me);
 // @desc: convert pictures to ascii arts based on node-canvas
-                         
-var fs = require('fs'),
-    Canvas = require('canvas'),
-    ascii = require('./ascii');
 
-var Ascii = function(src, params) {
-    this.src = src;
+var fs = require('fs');
+var Canvas = require('canvas');
+var ascii = require('./lib/ascii');
+
+module.exports = Ascii;
+
+function Ascii(src, params) {
+  this.src = src;
 }
 
 Ascii.prototype.load = function(callback) {
-    if (this.src) {
-        fs.readFile(this.src, callback);
-    } else {
-        callback(new Error('src picture required.'))
-    }
-}
+  if (this.src) 
+    return fs.readFile(this.src, callback);
+  return callback(new Error('src picture required.'))
+};
 
 Ascii.prototype.convert = function(type, callback) {
-    var t = (type && typeof(type) === 'string') ? type : 'cli',
-        cb = (typeof(type) === 'function' && !callback) ? type : callback;
-    this.load(function(err, img){
-        if (!err) {
-            var pic = new Canvas.Image;
-                pic.src = img;
-            var cv = new Canvas(pic.width, pic.height),
-                ctx = cv.getContext('2d');
-            ctx.drawImage(pic, 0, 0, pic.width, pic.height);
-            cb(null, ascii.init(t, ctx, pic));
-        } else {
-            cb(err);
-        }
-    });
-}
+  var t = (type && typeof(type) === 'string') ? type : 'cli';
+  var cb = (typeof(type) === 'function' && !callback) ? type : callback;
+  this.load(function(err, img) {
+    if (err) return cb(err);
+    var pic = new Canvas.Image;
+    pic.src = img;
+    var cv = new Canvas(pic.width, pic.height);
+    var ctx = cv.getContext('2d');
+    ctx.drawImage(pic, 0, 0, pic.width, pic.height);
+    cb(null, ascii.init(t, ctx, pic));
+  });
+};
 
-Ascii.fromBuffer = function (buffer) {
-    var instance = new Ascii();
-    
-    instance.load = function (callback) {
-        callback(null, buffer);
-    };
-    
-    return instance;
-}
-
-module.exports = Ascii;
+Ascii.fromBuffer = function(buffer) {
+  var instance = new Ascii();
+  instance.load = function(callback) {
+    callback(null, buffer);
+  };
+  return instance;
+};

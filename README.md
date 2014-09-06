@@ -1,33 +1,30 @@
-## ascii ![npm](https://badge.fury.io/js/ascii.png)
+## Ascii ![npm](https://badge.fury.io/js/ascii.png)
 
 convert jpg/png/gif to ascii arts based on node-canvas
 ![screenshot](http://ww3.sinaimg.cn/mw1024/61ff0de3gw1e903qhbyt8j20kl0f5768.jpg)
 
 ### Installation
-````
+```bash
 $ npm install ascii
-````
+```
 
 ### Example
-````javascript
+```javascript
 var Ascii = require('ascii');
 var pic = new Ascii('demo.png');
 
 // output in terminal (terminal mode)
 pic.convert(function(err, result) {
-    console.log(result);
+  console.log(result);
 });
 
 // output as html strings with css style (html mode)
 pic.convert('html', function(err, html){
-    console.log(html);
-    // then save it
-    require('fs').writeFileSync('demo.html',html);
+  console.log(html);
+  // then save it
+  require('fs').writeFileSync('demo.html',html);
 });
-````
-
-### API
-check this file: `index.js`
+```
 
 ### Contributing
 - Fork this repo
