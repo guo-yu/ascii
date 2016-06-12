@@ -1,14 +1,15 @@
 {
   "name": "ascii",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "convert pictures to ascii arts based on node-canvas",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "node_modules/.bin/babel libs -d dist",
     "example": "node example/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/turingou/ascii.git"
+    "url": "git://github.com/guo-yu/ascii.git"
   },
   "keywords": [
     "ascii",
@@ -18,9 +19,18 @@
   "author": "turing <o.u.turing@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/turingou/ascii/issues"
+    "url": "https://github.com/guo-yu/ascii/issues"
   },
   "dependencies": {
     "canvas": ">= 1.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.3.13"
   }
 }
